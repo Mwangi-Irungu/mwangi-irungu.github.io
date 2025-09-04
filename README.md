@@ -1,2 +1,2 @@
-Hello and welcome to tiffin
+Hello and welcome to Tiffin,
 Adventure Waits
