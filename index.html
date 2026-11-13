@@ -107,7 +107,13 @@
     color: var(--text-primary);
   }
 
-  .top__right {
+.top__right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .links {
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -117,17 +123,18 @@
     color: var(--text-muted);
     text-decoration: none;
     font-weight: 600;
+    font-size: 0.95rem;
     transition: color 0.3s ease;
   }
   .top__link:hover {
-    color: var(--text-primary);
+    color: var(--accent-gold);
   }
 
   .top__cta {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.6rem 1.2rem;
+    padding: 0.6rem 1.4rem;
     background: var(--accent-gold);
     color: #000;
     font-weight: 700;
@@ -150,6 +157,66 @@
 
   .top__cta:hover .arrow {
     transform: translateX(4px);
+  }
+
+  /* Mobile Hamburger Toggle */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    padding: 4px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .top__right {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(13, 15, 20, 0.98);
+      backdrop-filter: blur(16px);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem 7%;
+      gap: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+    }
+
+    .top__right.active {
+      max-height: 250px;
+      padding: 1.5rem 7%;
+    }
+
+    .links {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .top__cta {
+      width: 100%;
+      justify-content: center;
+    }
   }
 
   /* Hero Section */
@@ -396,12 +463,19 @@
     <img class="top__avatar" src="./assets/Images/Tiffin 1.JPG" alt="Steve Mwangi" />
     <span class="top__brand">Tiffin</span>
   </div>
+  <button class="nav-toggle" aria-label="Toggle Navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <nav class="top__right">
     <div class="links">
-      <a href="https://www.youtube.com/@TiffinKe" class="top__link">YouTube</a>
+      <a href="#it-consulting" class="top__link">Tiffin IT Consultancy</a>
+      <a href="#about" class="top__link">Info</a>
     </div>
-    <a href="https://www.instagram.com/mwas.irosh/" class="top__cta">Contact Me <span class="arrow">→</span></a>
+    <a href="mailto:mwangisteve.irungu@gmail.com" class="top__cta">Contact Me <span class="arrow">→</span></a>
   </nav>
+
 </header>
 
 <section class="hero">
@@ -487,6 +561,124 @@
         </a>
       </div>
     </div>
+    <!-- Project 4: IT Consulting & Systems Engineering -->
+    <div class="project-card fade-in" id="it-consulting">
+     
+      <h2 class="slider-heading">IT Consulting & Network Architecture</h2>
+      <p>
+        Beyond filmmaking, I operate as a multidisciplinary Systems Architect and IT Consultant through <strong>Tiffin IT Consultancy</strong>. I help schools, enterprises and community organizations eliminate bottlenecks through practical, self-sustaining technology ecosystems.
+
+      </p>
+      <blockquote>
+        <p>"Engineering resilient networks and automated software built for real-world operational efficiency."</p>
+      </blockquote>
+
+      <!-- 3-Column Capabilities Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+        
+        <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.5rem;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--accent-gold); margin-bottom: 0.75rem;">Enterprise Networks</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 0;">
+            End-to-end local area network (LAN) architecture, campus-wide star topologies.<br> Campus-wide LAN segmentation, MikroTik routing & captive portals, TP-Link Omada SDN deployments, and G657A fiber optic backhaul installations.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.5rem;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--accent-gold); margin-bottom: 0.75rem;">Full-Stack & M-Pesa APIs</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 0;">
+            Scalable web applications built with Next.js, TypeScript, and Supabase, wired directly to Safaricom Daraja APIs for automated STK Push monetization.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.5rem;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.15rem; color: var(--accent-gold); margin-bottom: 0.75rem;">AI Agents & Digital Training</h3>
+          <p style="font-size: 0.95rem; margin-bottom: 0;">
+            Automated RAG administrative bots across WhatsApp and Telegram, paired with institutional Google Workspace workflow transformation.
+          </p>
+        </div>
+
+      </div>
+      <div style="margin-top: 3rem; border-top: 1px solid var(--border-subtle); padding-top: 2rem;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-primary); margin-bottom: 1.5rem; text-align: center;">Clients</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+          
+          <!-- Client 1 -->
+          <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.5rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 1rem;">
+            <div style="width: 70px; height: 70px; border-radius: 50%; background: rgba(229, 169, 60, 0.08); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <!-- Replace src with your logo image path -->
+              <img src="https://littlerockkenya.org/assets/images/logo.png" alt="LittleRock ECDE Logo" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <span style="font-family: var(--font-heading); font-size: 0.8rem; color: var(--accent-gold); display: none;">LR</span>
+            </div>
+            <div>
+              <h4 style="font-family: var(--font-heading); font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.3rem;">LittleRock ECDE</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Network & Infrastructure Partner</p>
+            </div>
+            <a href="https://littlerockkenya.org/" target="_blank" rel="noopener" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.3rem;">
+              Visit Partner <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Client 2 -->
+          <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.5rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 1rem;">
+            <div style="width: 70px; height: 70px; border-radius: 50%; background: rgba(229, 169, 60, 0.08); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <!-- Replace src with your logo image path -->
+              <img src="https://static.wixstatic.com/media/58acc3_e95ff73fa6f34730944b0d6879955274~mv2.png/v1/fill/w_93,h_98,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/58acc3_e95ff73fa6f34730944b0d6879955274~mv2.png" alt="Missionaries of Charity Brothers Makina Logo" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <span style="font-family: var(--font-heading); font-size: 0.8rem; color: var(--accent-gold); display: none;">MC Brothers</span>
+            </div>
+            <div>
+              <h4 style="font-family: var(--font-heading); font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.3rem;">Missionaries of Charity Brothers Makina</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Community Technology Deployment</p>
+            </div>
+            <a href="https://www.accantoakibera.it/en/i-brother" target="_blank" rel="noopener" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.3rem;">
+              Learn More <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Client 3 -->
+          <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.5rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 1rem;">
+            <div style="width: 70px; height: 70px; border-radius: 50%; background: rgba(229, 169, 60, 0.08); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <!-- Replace src with your logo image path -->
+              <img src="https://www.codecrucible.org/Images/partners/KCE%20Logo1.png" alt="Kibera Children Education Logo" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <span style="font-family: var(--font-heading); font-size: 0.8rem; color: var(--accent-gold); display: none;">KCE</span>
+            </div>
+            <div>
+              <h4 style="font-family: var(--font-heading); font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.3rem;">Kibera Children Education</h4>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Digital Access & Support</p>
+            </div>
+            <a href="https://kiberace.com/" target="_blank" rel="noopener" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.3rem;">
+              Learn More <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 3rem; border-top: 1px solid var(--border-subtle); padding-top: 2.5rem;">
+        <div class="cc-split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;">
+          
+          <!-- Column 1: Paragraph & Eyebrow -->
+          <div>
+            <span class="eyebrow" style="margin-bottom: 0.5rem;">Code Crucible — Co-founder</span>
+            <p style="font-size: 1.15rem; color: var(--text-primary); line-height: 1.7; margin-bottom: 0;">
+              I founded <strong>Code Crucible Tech Hub</strong> to promote computer access and access to digital training for kids in Kibera.
+            </p>
+          </div>
+
+          <!-- Column 2: Image -->
+          <div style="width: 100%;">
+            <img src="./assets/Images/CodeDp.jpg" alt="Code Crucible Tech Hub" style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-subtle); box-shadow: 0 10px 25px rgba(0,0,0,0.5);" onerror="this.src='./assets/Images/Tiffin 1.JPG';" />
+          </div>
+
+        </div>
+
+        <!-- Centered CTA Button Below -->
+        <div class="see-more-wrapper">
+          <a href="https://www.codecrucible.org/" target="_blank" rel="noopener" class="see-more-btn" title="Explore Code Crucible">
+            Explore Code Crucible <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+       
+      </div>
 
   </div>
 </section>
